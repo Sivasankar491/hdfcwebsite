@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mobilebank
+  labels:
+    app: bank
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bank
+  template:
+    metadata:
+      name: mobilecont
+      labels:
+        app: bank
+    spec:
+      containers:
+      - name: intcont
+        image: sankar491/intb:v1
+
